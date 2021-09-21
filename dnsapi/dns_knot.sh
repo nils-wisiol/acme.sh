@@ -86,7 +86,7 @@ _get_root() {
     fi
 
     # query for SOA at current ancestor
-    if [ ! -z "$(dig SOA +short "${ancestor}")" ]; then
+    if [ ! -z "$(dig SOA +short +cd "${ancestor}")" ]; then
       # found SOA record
       _info "found SOA at $ancestor"
       _domain="${ancestor%?}"
